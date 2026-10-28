@@ -1,9 +1,17 @@
 function generateSlug(title) {
     // Convert the title to lowercase
-    return title.toLowerCase().replaceAll(" ", "-") + ".com";
+    const lowerTitle = title.toLowerCase();
+
+    // Replace spaces with hyphens and add .com
+    const slug = lowerTitle.replaceAll(" ", "-") + ".com";
+
+    return slug;
 }
 
+// Export the function for testing
 module.exports = { generateSlug };
 
-console.log(generateSlug("Hello World")); // Output: hello-world.com
-console.log(generateSlug("AlmaBetter Web Dev")); // Output: almabetter-web-dev.com
+// Test cases
+console.log(generateSlug("Hello World"));        // hello-world.com
+console.log(generateSlug("AlmaBetter Web Dev")); // almabetter-web-dev.com
+console.log(generateSlug("JavaScript Basics"));  // javascript-basics.com
