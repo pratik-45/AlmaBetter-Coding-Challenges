@@ -1,35 +1,28 @@
-
 function insert7(str) {
-    // Store the final modified string
     let result = "";
-
-    // Count characters while ignoring spaces
     let count = 0;
 
-    // Check each character in the string
-    for (const char of str) {
-        // Add the original character to the result
+    // Check each character, including its position
+    for (let i = 0; i < str.length; i++) {
+        const char = str[i];
         result += char;
 
-        // Ignore spaces when counting characters
+        // Ignore spaces when counting
         if (char !== " ") {
             count++;
 
-            // Insert "7" after every 6 non-space characters
-            if (count % 6 === 0) {
+            // Insert 7 after every 6 non-space characters, except at the end
+            if (count % 6 === 0 && i < str.length - 1) {
                 result += "7";
             }
         }
     }
 
-    // Return the modified string
     return result;
 }
 
-// Export the function for testing
 module.exports = { insert7 };
 
-// Test cases
-console.log(insert7("Hello World and Universe!"));
-console.log(insert7("abcdef"));
-console.log(insert7("abc"));
+console.log(insert7("Hello World and Universe!")); // Hello W7orld an7d Unive7rse!
+console.log(insert7("abcdef"));                    // abcdef
+console.log(insert7("abc"));                       // abc
